@@ -85,9 +85,9 @@ int main(int argc, char **argv) {
     int index2 = 0;
     for (int i = 0; i < sb->s_inodes_count; i++) {
         // get the corresponding byte
-		unsigned b = ib[i/8];
+	unsigned b = ib[i/8];
         // Print the correcponding bit
-		printf("%d", (b & (1 << index2) > 0);
+	printf("%d", (b & (1 << index2) > 0);
         // If that bit was a 1, inode is used, store it into the array.
         // Note, this is the index number, NOT the inode number
         // inode number = index number + 1
@@ -95,7 +95,7 @@ int main(int argc, char **argv) {
             inum[inumc++] = i;
         }
         // increment shift index, if > 8 reset.
-		if (++index2 == 8) (index2 = 0, printf(" "));
+	if (++index2 == 8) (index2 = 0, printf(" "));
     }
     printf("\n\n");
 

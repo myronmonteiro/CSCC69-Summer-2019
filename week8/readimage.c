@@ -56,14 +56,17 @@ int main(int argc, char **argv) {
     /******************************* Block Bitmap *************************************/
 
     // Get block bitmap
-    
+    char *bm = (char *) (disk + (bgd->bg_block_bitmap * EXT2_BLOCK_SIZE);
     // counter for shift
     printf("block bitmap: ");
     int index = 0;
     for (int i = 0; i < sb->s_blocks_count; i++) {
         // get the corresponding byte
+	unsigned c = bm[i/8];
         // Print the correcponding bit
+	printf("%d", (c & (1 << index)) > 0);
         // increment shift index, if > 8 reset.
+	if (++index == 8) (index = 0, printf(" "));
     }
     printf("\n");
 
@@ -71,6 +74,7 @@ int main(int argc, char **argv) {
     /************************* + store used inodes ************************************/
 
     // Get inode bitmap
+	char *ib = (char *) (disk + (bgd->inode_bitmap * EXT2_BLOCK_SIZE);					 
     // Want to keep track of the used inodes in this array
     int inum[32];
     // Root inode is Inode number 2, index 1
@@ -81,7 +85,9 @@ int main(int argc, char **argv) {
     int index2 = 0;
     for (int i = 0; i < sb->s_inodes_count; i++) {
         // get the corresponding byte
+		unsigned b = ib[i/8];
         // Print the correcponding bit
+		printf("%d", (b & (1 << index2) > 0);
         // If that bit was a 1, inode is used, store it into the array.
         // Note, this is the index number, NOT the inode number
         // inode number = index number + 1
@@ -89,6 +95,7 @@ int main(int argc, char **argv) {
             inum[inumc++] = i;
         }
         // increment shift index, if > 8 reset.
+		if (++index2 == 8) (index2 = 0, printf(" "));
     }
     printf("\n\n");
 

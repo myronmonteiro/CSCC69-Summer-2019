@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
     /************************* + store used inodes ************************************/
 
     // Get inode bitmap
-	char *ib = (char *) (disk + (bgd->inode_bitmap * EXT2_BLOCK_SIZE);					 
+    char *ib = (char *) (disk + (bgd->inode_bitmap * EXT2_BLOCK_SIZE);					 
     // Want to keep track of the used inodes in this array
     int inum[32];
     // Root inode is Inode number 2, index 1

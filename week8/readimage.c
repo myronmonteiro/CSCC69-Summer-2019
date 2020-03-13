@@ -119,7 +119,11 @@ int main(int argc, char **argv) {
         // Number = index + 1
         char type = (S_ISDIR(curr->i_mode)) ? 'd' : ((S_ISREG(curr->i_mode)) ? 'f' : 's');
         // Print Inode info
-        
+        printf("[%d] ", i+1);
+	    printf("type: %c ", curr->i_mode);
+	    printf("size:&d ", curr->i_size);
+		printf("links: %d ", curr->i_links_count);
+		printf("blocks: %d\n", curr->i_blocks);
         // Now to print all the blocks for the inode  
         // Get the array of blocks from inode
         // Loop through and print all value till a 0 is seen in the array
